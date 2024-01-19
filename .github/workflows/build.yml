@@ -1,0 +1,39 @@
+name: Lab3 CI/CD
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  build:
+    name: Build services
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: docker/setup-buildx-action@v2
+
+      - name: Build images
+        timeout-minutes: 10
+        run: docker compose build
+
+      - name: Run containers
+        timeout-minutes: 5
+        run: docker compose up -d
+
+      - name: Check start of services
+        run: |
+          chmod +x ./scripts/wait-script.sh
+          chmod +x ./scripts/wait-for.sh
+          ./scripts/wait-script.sh
+        env:
+          WAIT_PORTS: 8080,8070,8060,8050
+
+      - name: Run API Tests
+        timeout-minutes: 5
+        run: |
+          chmod +x ./scripts/test-script.sh
+          ./scripts/test-script.sh
+        env:
+          VARIANT: v1
+          SERVICE_NAME: bonus-service
+          PORT_NUMBER: 8050

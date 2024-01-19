@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+set -e
+
 variant=${1:-${VARIANT}}
 service=${2:-${SERVICE_NAME}}
 port=${3:-${PORT_NUMBER}}
@@ -27,7 +29,7 @@ step() {
 
   docker compose "$operation" "$service"
   if [[ "$operation" == "start" ]]; then
-    "$path"/wait-for.sh -t 120 "http://localhost:$port/manage/health" -- echo "Host localhost:$port is active"
+    "$path"/wait-for.sh -t 120 "http://localhost:$port/api/v1/manage/health" -- echo "Host localhost:$port is active"
   fi
 
   newman run \
