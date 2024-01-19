@@ -7,7 +7,7 @@ WORKDIR flight_service
 ARG JAR_FILE=target/*.jar
 COPY --from=build ${JAR_FILE} flight_service.jar
 RUN java -Djarmode=layertools -jar flight_service.jar extract
-LABEL authors="Гузеева Наталья ИУ7-11МВ"
+LABEL authors="Губеева Наталья ИУ7-11МВ"
 
 FROM amazoncorretto:19
 ENV PORT=8060

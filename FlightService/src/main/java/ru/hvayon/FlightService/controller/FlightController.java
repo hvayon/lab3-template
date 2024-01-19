@@ -4,9 +4,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import ru.hvayon.FlightService.domain.Flight;
-import ru.hvayon.FlightService.service.FlightService;
 import ru.hvayon.FlightService.response.FlightListResponse;
 import ru.hvayon.FlightService.response.FlightResponse;
+import ru.hvayon.FlightService.service.FlightService;
 
 import java.util.ArrayList;
 import java.util.List;
