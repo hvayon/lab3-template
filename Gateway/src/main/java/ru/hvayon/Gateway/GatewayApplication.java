@@ -1,4 +1,4 @@
-package ru.dyusov.Gateway;
+package ru.hvayon.Gateway;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

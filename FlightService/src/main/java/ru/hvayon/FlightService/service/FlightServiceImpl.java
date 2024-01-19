@@ -1,12 +1,12 @@
-package ru.dyusov.FlightService.service;
+package ru.hvayon.FlightService.service;
 
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
-import ru.dyusov.FlightService.domain.Flight;
-import ru.dyusov.FlightService.repository.FlightRepository;
+import ru.hvayon.FlightService.domain.Flight;
+import ru.hvayon.FlightService.repository.FlightRepository;
 
 import java.util.List;
 import java.util.Optional;

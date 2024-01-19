@@ -1,4 +1,4 @@
-package ru.dyusov.BonusService;
+package ru.hvayon.BonusService;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

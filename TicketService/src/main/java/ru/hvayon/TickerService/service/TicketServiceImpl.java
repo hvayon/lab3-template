@@ -1,11 +1,11 @@
-package ru.dyusov.TickerService.service;
+package ru.hvayon.TickerService.service;
 
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.util.ReflectionUtils;
-import ru.dyusov.TickerService.domain.Ticket;
-import ru.dyusov.TickerService.model.TicketRequest;
-import ru.dyusov.TickerService.repository.TicketRepository;
+import ru.hvayon.TickerService.domain.Ticket;
+import ru.hvayon.TickerService.model.TicketRequest;
+import ru.hvayon.TickerService.repository.TicketRepository;
 
 import java.lang.reflect.Field;
 import java.util.List;

@@ -1,4 +1,4 @@
-package ru.dyusov.BonusService.domain;
+package ru.hvayon.BonusService.domain;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

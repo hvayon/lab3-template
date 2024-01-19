@@ -1,4 +1,4 @@
-package ru.dyusov.FlightService.domain;
+package ru.hvayon.FlightService.domain;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

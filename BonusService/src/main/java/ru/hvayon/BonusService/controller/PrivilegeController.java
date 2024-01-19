@@ -1,13 +1,13 @@
-package ru.dyusov.BonusService.controller;
+package ru.hvayon.BonusService.controller;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
-import ru.dyusov.BonusService.domain.Privilege;
-import ru.dyusov.BonusService.domain.PrivilegeHistory;
-import ru.dyusov.BonusService.model.PrivilegeHistoryRecordRequest;
-import ru.dyusov.BonusService.service.PrivilegeService;
+import ru.hvayon.BonusService.domain.Privilege;
+import ru.hvayon.BonusService.domain.PrivilegeHistory;
+import ru.hvayon.BonusService.model.PrivilegeHistoryRecordRequest;
+import ru.hvayon.BonusService.service.PrivilegeService;
 
 import java.util.List;
 import java.util.Map;

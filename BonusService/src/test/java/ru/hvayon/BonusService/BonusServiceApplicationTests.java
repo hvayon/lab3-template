@@ -1,10 +1,10 @@
-package ru.dyusov.FlightService;
+package ru.hvayon.BonusService;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class FlightServiceApplicationTests {
+class BonusServiceApplicationTests {
 
 	@Test
 	void contextLoads() {

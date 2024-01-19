@@ -1,13 +1,13 @@
-package ru.dyusov.BonusService.service;
+package ru.hvayon.BonusService.service;
 
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.util.ReflectionUtils;
-import ru.dyusov.BonusService.domain.Privilege;
-import ru.dyusov.BonusService.domain.PrivilegeHistory;
-import ru.dyusov.BonusService.model.PrivilegeHistoryRecordRequest;
-import ru.dyusov.BonusService.repository.PrivilegeHistoryRepository;
-import ru.dyusov.BonusService.repository.PrivilegeRepository;
+import ru.hvayon.BonusService.domain.Privilege;
+import ru.hvayon.BonusService.domain.PrivilegeHistory;
+import ru.hvayon.BonusService.model.PrivilegeHistoryRecordRequest;
+import ru.hvayon.BonusService.repository.PrivilegeHistoryRepository;
+import ru.hvayon.BonusService.repository.PrivilegeRepository;
 
 import java.lang.reflect.Field;
 import java.time.LocalDateTime;

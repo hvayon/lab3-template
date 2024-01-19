@@ -1,4 +1,4 @@
-package ru.dyusov.BonusService.model;
+package ru.hvayon.BonusService.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

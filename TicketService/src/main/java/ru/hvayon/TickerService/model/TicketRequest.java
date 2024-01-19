@@ -1,4 +1,4 @@
-package ru.dyusov.TickerService.model;
+package ru.hvayon.TickerService.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

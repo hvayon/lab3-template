@@ -1,4 +1,4 @@
-package ru.dyusov.FlightService.response;
+package ru.hvayon.FlightService.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

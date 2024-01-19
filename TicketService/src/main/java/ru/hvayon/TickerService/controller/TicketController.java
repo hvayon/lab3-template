@@ -1,11 +1,11 @@
-package ru.dyusov.TickerService.controller;
+package ru.hvayon.TickerService.controller;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import ru.dyusov.TickerService.domain.Ticket;
-import ru.dyusov.TickerService.model.TicketRequest;
-import ru.dyusov.TickerService.service.TicketService;
+import ru.hvayon.TickerService.domain.Ticket;
+import ru.hvayon.TickerService.model.TicketRequest;
+import ru.hvayon.TickerService.service.TicketService;
 
 import java.util.List;
 import java.util.Map;

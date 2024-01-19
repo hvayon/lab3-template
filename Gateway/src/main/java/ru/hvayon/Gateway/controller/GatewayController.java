@@ -1,4 +1,4 @@
-package ru.dyusov.Gateway.controller;
+package ru.hvayon.Gateway.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -11,10 +11,11 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.server.ResponseStatusException;
-import ru.dyusov.Gateway.request.AddTicketRequest;
-import ru.dyusov.Gateway.request.PrivilegeHistoryRequest;
-import ru.dyusov.Gateway.request.TicketRequest;
+import ru.hvayon.Gateway.request.AddTicketRequest;
+import ru.hvayon.Gateway.request.PrivilegeHistoryRequest;
+import ru.hvayon.Gateway.request.TicketRequest;
 import ru.dyusov.Gateway.response.*;
+import ru.hvayon.Gateway.response.*;
 
 import java.util.Arrays;
 import java.util.HashMap;

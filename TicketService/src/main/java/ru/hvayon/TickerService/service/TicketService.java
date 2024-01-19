@@ -1,8 +1,8 @@
-package ru.dyusov.TickerService.service;
+package ru.hvayon.TickerService.service;
 
 import org.springframework.stereotype.Service;
-import ru.dyusov.TickerService.domain.Ticket;
-import ru.dyusov.TickerService.model.TicketRequest;
+import ru.hvayon.TickerService.domain.Ticket;
+import ru.hvayon.TickerService.model.TicketRequest;
 
 import java.util.List;
 import java.util.Map;

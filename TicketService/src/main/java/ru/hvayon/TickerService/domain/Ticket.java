@@ -1,4 +1,4 @@
-package ru.dyusov.TickerService.domain;
+package ru.hvayon.TickerService.domain;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

@@ -1,4 +1,4 @@
-package ru.dyusov.Gateway;
+package ru.hvayon.Gateway;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

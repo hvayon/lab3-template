@@ -1,4 +1,4 @@
-package ru.dyusov.FlightService;
+package ru.hvayon.FlightService;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

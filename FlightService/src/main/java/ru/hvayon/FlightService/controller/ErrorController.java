@@ -1,4 +1,4 @@
-package ru.dyusov.FlightService.controller;
+package ru.hvayon.FlightService.controller;
 
 import jakarta.persistence.EntityNotFoundException;
 import org.slf4j.Logger;

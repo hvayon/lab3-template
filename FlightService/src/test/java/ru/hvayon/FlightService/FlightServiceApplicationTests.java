@@ -1,10 +1,10 @@
-package ru.dyusov.TickerService;
+package ru.hvayon.FlightService;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class TickerServiceApplicationTests {
+class FlightServiceApplicationTests {
 
 	@Test
 	void contextLoads() {

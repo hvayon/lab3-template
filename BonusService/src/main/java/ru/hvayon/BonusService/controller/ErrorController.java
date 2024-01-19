@@ -1,4 +1,4 @@
-package ru.dyusov.BonusService.controller;
+package ru.hvayon.BonusService.controller;
 
 import jakarta.persistence.EntityNotFoundException;
 import org.slf4j.Logger;

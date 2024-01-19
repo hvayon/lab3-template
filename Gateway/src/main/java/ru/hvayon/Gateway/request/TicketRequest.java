@@ -1,4 +1,4 @@
-package ru.dyusov.Gateway.request;
+package ru.hvayon.Gateway.request;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

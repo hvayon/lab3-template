@@ -1,4 +1,4 @@
-package ru.dyusov.TickerService.controller;
+package ru.hvayon.TickerService.controller;
 
 import jakarta.persistence.EntityNotFoundException;
 import org.slf4j.Logger;

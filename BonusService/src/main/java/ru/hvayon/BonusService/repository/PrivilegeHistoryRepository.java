@@ -1,8 +1,8 @@
-package ru.dyusov.BonusService.repository;
+package ru.hvayon.BonusService.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import ru.dyusov.BonusService.domain.Privilege;
-import ru.dyusov.BonusService.domain.PrivilegeHistory;
+import ru.hvayon.BonusService.domain.Privilege;
+import ru.hvayon.BonusService.domain.PrivilegeHistory;
 
 import java.util.List;
 import java.util.Optional;

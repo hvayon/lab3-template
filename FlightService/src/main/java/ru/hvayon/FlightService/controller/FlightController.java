@@ -1,12 +1,12 @@
-package ru.dyusov.FlightService.controller;
+package ru.hvayon.FlightService.controller;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import ru.dyusov.FlightService.domain.Flight;
-import ru.dyusov.FlightService.response.FlightListResponse;
-import ru.dyusov.FlightService.response.FlightResponse;
-import ru.dyusov.FlightService.service.FlightService;
+import ru.hvayon.FlightService.domain.Flight;
+import ru.hvayon.FlightService.service.FlightService;
+import ru.hvayon.FlightService.response.FlightListResponse;
+import ru.hvayon.FlightService.response.FlightResponse;
 
 import java.util.ArrayList;
 import java.util.List;

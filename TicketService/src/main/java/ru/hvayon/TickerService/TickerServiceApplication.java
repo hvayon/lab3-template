@@ -1,4 +1,4 @@
-package ru.dyusov.TickerService;
+package ru.hvayon.TickerService;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

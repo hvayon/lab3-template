@@ -1,10 +1,10 @@
-package ru.dyusov.BonusService;
+package ru.hvayon.TickerService;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class BonusServiceApplicationTests {
+class TickerServiceApplicationTests {
 
 	@Test
 	void contextLoads() {

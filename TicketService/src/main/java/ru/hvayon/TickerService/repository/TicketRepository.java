@@ -1,8 +1,8 @@
-package ru.dyusov.TickerService.repository;
+package ru.hvayon.TickerService.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-import ru.dyusov.TickerService.domain.Ticket;
+import ru.hvayon.TickerService.domain.Ticket;
 
 import java.util.List;
 import java.util.Optional;
