@@ -9,8 +9,4 @@ public class AuthRequest {
     String username;
     @JsonProperty("password")
     String password;
-    @JsonProperty("clientId")
-    String clientId;
-    @JsonProperty("clientSecret")
-    String clientSecret;
 }

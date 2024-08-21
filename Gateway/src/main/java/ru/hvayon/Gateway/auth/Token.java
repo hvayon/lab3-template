@@ -15,5 +15,6 @@ public class Token {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @JsonProperty("access_token")
+    @Column(length = 1000)
     String authToken;
 }
