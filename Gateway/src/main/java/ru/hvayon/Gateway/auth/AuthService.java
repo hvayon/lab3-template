@@ -7,6 +7,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestTemplate;
+import ru.hvayon.Gateway.request.UserInfoRequest;
+import ru.hvayon.Gateway.response.UserInfoResponse;
 
 import java.util.Base64;
 
@@ -28,6 +30,9 @@ public class AuthService {
     @Value("${client-secret}")
     private String clientSecret;
 
+    @Value("${user_info}")
+    private String user_uri;
+
     @Value("${grant-type}")
     private String grantType;
 
@@ -48,6 +53,18 @@ public class AuthService {
         headers.set("Authorization", "Basic " + hashHeaders());
         headers.setContentType(MediaType.APPLICATION_FORM_URLENCODED);
         return headers;
+    }
+
+    public UserInfoResponse auth(String authHeader) {
+        HttpHeaders headers = new HttpHeaders();
+        headers.set("Authorization", authHeader);
+        System.out.println(authHeader);
+        return new RestTemplate().exchange(
+                IDENTITY_PROVIDER + user_uri,
+                HttpMethod.GET,
+                new HttpEntity<>(headers),
+                UserInfoResponse.class
+        ).getBody();
     }
 
     public String getAuthToken() {

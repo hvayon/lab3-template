@@ -11,11 +11,15 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.server.ResponseStatusException;
+import ru.hvayon.Gateway.auth.AuthService;
+import ru.hvayon.Gateway.kafka.LogMessage;
+import ru.hvayon.Gateway.kafka.MyKafkaProducer;
 import ru.hvayon.Gateway.request.AddTicketRequest;
 import ru.hvayon.Gateway.request.PrivilegeHistoryRequest;
 import ru.hvayon.Gateway.request.TicketRequest;
 import ru.hvayon.Gateway.response.*;
 
+import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
@@ -25,7 +29,6 @@ import java.util.UUID;
 @RequestMapping("/api/v1")
 @PropertySource("classpath:application.properties")
 public class GatewayController {
-
     @Value("${flight_service.host}")
     private String FLIGHT_SERVICE;
 
@@ -35,6 +38,9 @@ public class GatewayController {
     @Value("${bonus_service.host}")
     private String BONUS_SERVICE;
 
+    @Value("${stats_service.host}")
+    private String STATS_SERVICE;
+
     private static String GET_FLIGHTS_URL = "/api/v1/flights?page={page}&size={size}";
     private static String GET_FLIGHT_BY_NUMBER_URL = "/api/v1/flights/{flightNumber}";
     private static String GET_TICKETS_URL = "/api/v1/tickets";
@@ -42,12 +48,43 @@ public class GatewayController {
     private static String GET_PRIVILEGE_URL = "/api/v1/privilege";
     private static String GET_PRIVILEGE_HISTORY_URL = "/api/v1/privilege/history";
     private static String GET_PRIVILEGE_HISTORY_BY_TICKET_UID_URL = "/api/v1/privilege/history/{ticketUid}";
+    private static String GET_STATS_URL = "/api/v1/stats";
 
     @Autowired
     private CircuitBreakerFactory circuitBreakerFactory;
 
     @Autowired
     private RetryTemplate retryTemplate;
+
+    @Autowired
+    private AuthService authService;
+
+    @Autowired
+    private MyKafkaProducer kafkaProducer;
+
+//    @GetMapping("/authOnly")
+//    public ResponseEntity<UserInfoResponse> test(@RequestHeader("Authorization") String authHeader) throws Exception {
+//        // for test
+//        LocalDateTime startDttm = LocalDateTime.now();
+//
+//        String username = authService.auth(authHeader).getPrincipal();
+////        kafkaProducer.send(new LogMessageDto(UUID.randomUUID(), startDttm, LocalDateTime.now(), username, "AUTH", "GATEWAY"));
+//        return new ResponseEntity<>(authService.auth("Bearer " + authService.getAuthToken()), HttpStatus.OK);
+//    }
+
+    @GetMapping("/stats")
+    public LogMessage[] getStatistics(@RequestHeader("Authorization") String authHeader) {
+        String username = authService.auth(authHeader).getPrincipal();
+        LocalDateTime startDttm = LocalDateTime.now();
+        LogMessage[] response = new RestTemplate().exchange(
+                STATS_SERVICE + GET_STATS_URL,
+                HttpMethod.GET,
+                new HttpEntity<>(new HttpHeaders()),
+                LogMessage[].class).getBody();
+        // send to kafka
+        kafkaProducer.sendMessage(new LogMessage(UUID.randomUUID(), startDttm, LocalDateTime.now(), username, "GET_FLIGHTS", "FLIGHT_SERVICE"));
+        return response;
+    }
 
     @PostMapping("/tickets")
     public ResponseEntity<TicketPurchaseResponse> addTicket(@RequestHeader(name = "X-User-Name") String username, @RequestBody TicketRequest ticket) throws Exception {

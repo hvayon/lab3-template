@@ -1,4 +1,4 @@
-package ru.hvayon.Gateway.auth;
+package ru.hvayon.Gateway.request;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;

@@ -1,4 +1,5 @@
 # Created by .ignore support plugin (hsz.mobi)
+.DS_Store
 ### Node template
 # Logs
 logs
@@ -212,7 +213,7 @@ build-iPhoneSimulator/
 ### Gradle template
 .gradle
 **/build/
-!src/**/build/
+!out/**/build/
 
 # Ignore Gradle GUI config
 gradle-app.setting
