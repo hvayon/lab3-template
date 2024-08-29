@@ -1,5 +1,6 @@
 package ru.hvayon.Gateway.controller;
 
+import lombok.SneakyThrows;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.client.circuitbreaker.CircuitBreakerFactory;
@@ -73,8 +74,15 @@ public class GatewayController {
 //    }
 
     @GetMapping("/stats")
+    @SneakyThrows
     public LogMessage[] getStatistics(@RequestHeader("Authorization") String authHeader) {
         String username = authService.auth(authHeader).getPrincipal();
+        if (!username.equals("admin")) {
+            throw new HttpClientErrorException(
+                    HttpStatus.FORBIDDEN,
+                    "Only admins can access stats"
+            );
+        }
         LocalDateTime startDttm = LocalDateTime.now();
         LogMessage[] response = new RestTemplate().exchange(
                 STATS_SERVICE + GET_STATS_URL,
@@ -82,7 +90,7 @@ public class GatewayController {
                 new HttpEntity<>(new HttpHeaders()),
                 LogMessage[].class).getBody();
         // send to kafka
-        kafkaProducer.sendMessage(new LogMessage(UUID.randomUUID(), startDttm, LocalDateTime.now(), username, "GET_FLIGHTS", "FLIGHT_SERVICE"));
+        kafkaProducer.send(new LogMessage(UUID.randomUUID(), startDttm, LocalDateTime.now(), username, "GET_STATS", "STATS_SERVICE"));
         return response;
     }
 

@@ -2,6 +2,7 @@ package ru.hvayon.Gateway;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.context.properties.ConfigurationPropertiesScan;
 import org.springframework.context.annotation.Bean;
 import org.springframework.retry.annotation.EnableRetry;
 import org.springframework.retry.backoff.FixedBackOffPolicy;
@@ -10,6 +11,7 @@ import org.springframework.retry.support.RetryTemplate;
 
 @SpringBootApplication
 @EnableRetry
+@ConfigurationPropertiesScan
 public class GatewayApplication {
 
     public static void main(String[] args) {

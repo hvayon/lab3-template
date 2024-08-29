@@ -17,9 +17,9 @@ public class MyKafkaProducer {
         this.streamBridge = streamBridge;
     }
 
-    public void sendMessage(LogMessage msg) {
+    public void send(LogMessage message) {
         try {
-            streamBridge.send(topic, "Sent message=[ "+ msg +" ].");
+            streamBridge.send(topic, message);
         } catch (Exception e) {
             System.out.println("Error sending message: " + e.getMessage());
         }

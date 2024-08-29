@@ -40,6 +40,24 @@ public class AuthController {
     }
 
     @PreAuthorize("hasAuthority('ROLE_ADMIN')")
+    @PostMapping("/admin/create/user")
+    @ResponseStatus(HttpStatus.CREATED)
+    public void adminCreateUser(@RequestBody User user) {
+        System.out.println("A new user has been created: " + user.getEmail());
+        Role userRole = roleRepository.findByName("ROLE_USER")
+                .orElseThrow(() -> new RuntimeException("Role 'USER' not found"));
+
+        Set<Role> roles = new HashSet<>();
+        roles.add(userRole);
+        user.setRoles(roles);
+
+        String encodedPassword = passwordEncoder.encode(user.getPassword());
+        System.out.println(encodedPassword);
+        user.setPassword(encodedPassword);
+
+        userRepository.save(user);
+    }
+
     @PostMapping("/v1/create/user")
     @ResponseStatus(HttpStatus.CREATED)
     public void createUser(@RequestBody User user) {

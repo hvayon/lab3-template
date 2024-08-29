@@ -90,6 +90,7 @@ public class AuthService {
     }
 
     public String createUser(UserInfoRequest user) {
+        this.authorize("user", "100");
         HttpHeaders headers = new HttpHeaders();
         headers.set("Authorization", "Bearer " + getAuthToken());
         new RestTemplate().postForEntity(
@@ -97,5 +98,9 @@ public class AuthService {
                 new HttpEntity<>(user, headers),
                 String.class).getBody();
         return "New user " + user.getUsername() + " create!";
+    }
+
+    public void logout() {
+        tokenRepository.deleteAll();
     }
 }
